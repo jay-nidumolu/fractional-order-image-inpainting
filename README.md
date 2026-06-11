@@ -211,7 +211,7 @@ Potential future directions include:
 
 **Jay Nidumolu**
 University of Waterloo
-Machine Learning Engineer | Data Engineering | Applied AI
+ | Machine Learning Engineer | Data Engineering | Applied AI
 
 **Praveen Raavi**
 University of Waterloo
