@@ -1,5 +1,10 @@
 # Fractional-Order Image Inpainting
 
+![MATLAB](https://img.shields.io/badge/MATLAB-R2024a-orange)
+![Computer Vision](https://img.shields.io/badge/Domain-Computer%20Vision-blue)
+![Signal Processing](https://img.shields.io/badge/Area-Signal%20Processing-green)
+![Research](https://img.shields.io/badge/Type-Research%20Project-red)
+
 ## Reproduction and Extension of an Image Inpainting Model Based on Fractional-Order Nonlinear Diffusion
 
 This repository presents the reproduction and extension of the paper:
@@ -13,41 +18,64 @@ Beyond reproducing the original methodology, this work introduces several extens
 
 ---
 
-# Research Contributions
+## Highlights
 
-## Reproduction Study
+* Reproduced a published fractional-order nonlinear diffusion image inpainting model.
+* Extended the original grayscale formulation to RGB images using direct 3D signal processing.
+* Developed an edge-driven automatic mask generation pipeline.
+* Benchmarked performance against TV Reconstruction and Bilateral Telea methods.
+* Achieved **49.78 PSNR** using the proposed RGB extension.
+* Evaluated reconstruction quality using **PSNR**, **MSSIM**, and **FoM** metrics.
+
+---
+
+## Research Artifacts
+
+📄 **Research Report**
+
+* [Project Report](docs/Project_Report.pdf)
+
+📊 **Presentation Slides**
+
+* [Project Presentation](docs/Project_Presentation.pdf)
+
+---
+
+## Research Contributions
+
+### Reproduction Study
 
 * Reproduced the original fractional-order nonlinear diffusion framework for image inpainting.
 * Implemented fractional-order derivatives using Fourier-domain formulations.
 * Recreated the difference-curvature-based adaptive conductance mechanism.
 * Evaluated reconstruction performance on benchmark images.
 
-## Extension 1: RGB Image Inpainting
+### RGB Image Inpainting Extension
 
-The original work was designed for grayscale images.
+The original methodology was designed for grayscale images.
 
-This project extends the methodology to RGB images using:
+This work extends the framework to RGB image restoration using:
 
 * Channel-wise reconstruction
 * Direct 3D signal processing formulation
 
 The direct 3D approach incorporates inter-channel dependencies and preserves color consistency during restoration.
 
-## Extension 2: Edge-Driven Automatic Mask Generation
+### Edge-Driven Automatic Mask Generation
 
-The original paper assumes that inpainting masks are already available.
+The original paper assumes the availability of predefined inpainting masks.
 
 To improve practical usability, an automatic mask generation pipeline was developed using:
 
 * Sobel edge detection
 * Morphological dilation
-* Binary mask construction
+* Binary mask generation
 
 This enables restoration directly from degraded images without manually supplied masks.
 
-## Extension 3: Comparative Evaluation
+### Comparative Evaluation
 
-The proposed method was compared against:
+The proposed method was benchmarked against:
 
 * Total Variation (TV) Reconstruction
 * Bilateral Telea Inpainting
@@ -60,7 +88,7 @@ using:
 
 ---
 
-# Methodology
+## Methodology
 
 The proposed framework combines:
 
@@ -70,13 +98,13 @@ The proposed framework combines:
 4. Fractional-order nonlinear diffusion
 5. Variational restoration for non-inpainting regions
 
-The model aims to preserve edges while minimizing staircase artifacts and speckle noise commonly observed in traditional diffusion approaches.
+The model aims to preserve edges while minimizing staircase artifacts and speckle noise commonly observed in traditional diffusion-based approaches.
 
 ---
 
-# Key Results
+## Performance Results
 
-## Average Performance Across Benchmark Images
+### Average Performance Across Benchmark Images
 
 | Model             | PSNR  | MSSIM  | FoM    |
 | ----------------- | ----- | ------ | ------ |
@@ -84,9 +112,9 @@ The model aims to preserve edges while minimizing staircase artifacts and speckl
 | TV Reconstruction | 25.21 | 0.8989 | 0.5661 |
 | Bilateral Telea   | 24.63 | 0.7617 | 0.3243 |
 
-The fractional-order diffusion model consistently demonstrated superior structural preservation, edge reconstruction, and artifact suppression.
+The proposed fractional-order diffusion model consistently demonstrated superior structural preservation, edge reconstruction, and artifact suppression.
 
-## RGB Extension Results
+### RGB Extension Results
 
 | Method                      | PSNR  | MSSIM  | FoM    |
 | --------------------------- | ----- | ------ | ------ |
@@ -97,23 +125,23 @@ The direct 3D formulation achieved substantially higher reconstruction quality w
 
 ---
 
-# Sample Results
+## Sample Results
 
-## Image Restoration Comparison
+### Image Restoration Comparison
 
 ![Restoration Comparison](images/restoration_comparison.png)
 
-## RGB Extension
+### RGB Image Inpainting Extension
 
 ![RGB Extension](images/rgb_extension.png)
 
-## Edge-Driven Mask Generation
+### Edge-Driven Mask Generation
 
 ![Edge Mask Generation](images/edge_mask_generation.png)
 
 ---
 
-# Applications
+## Applications
 
 Potential applications include:
 
@@ -123,38 +151,51 @@ Potential applications include:
 * Medical image enhancement
 * Satellite image restoration
 * Computer vision preprocessing
+* Image denoising and deblurring
 
 ---
 
-# Repository Structure
+## Repository Structure
 
 ```text
 fractional-order-image-inpainting/
 
 ├── README.md
+│
 ├── docs/
 │   ├── Project_Report.pdf
 │   ├── Project_Presentation.pdf
 │   └── Project_Presentation.pptx
 │
-├── images/
-│   ├── restoration_comparison.png
-│   ├── rgb_extension.png
-│   └── edge_mask_generation.png
+├── src/
+│   ├── Project_Algorithm.m
+│   ├── Project_3d_channel_seperation.m
+│   ├── project_3d.m
+│   └── MaskGenerator.m
 │
-└── src/
+├── data/
+│   └── ReportData/
+│
+└── images/
+    ├── restoration_comparison.png
+    ├── rgb_extension.png
+    └── edge_mask_generation.png
 ```
 
 ---
 
-# Research Artifacts
+## Source Files
 
-* [Research Report](docs/Project_Report.pdf)
-* [Presentation Slides](docs/Project_Presentation.pdf)
+| File                            | Description                                                             |
+| ------------------------------- | ----------------------------------------------------------------------- |
+| Project_Algorithm.m             | Reproduction of the original fractional-order nonlinear diffusion model |
+| Project_3d_channel_seperation.m | RGB image inpainting using channel separation                           |
+| project_3d.m                    | Direct 3D signal processing implementation                              |
+| MaskGenerator.m                 | Edge-driven mask generation pipeline                                    |
 
 ---
 
-# Future Work
+## Future Work
 
 Potential future directions include:
 
@@ -166,24 +207,21 @@ Potential future directions include:
 
 ---
 
-# Authors
+## Authors
 
 **Jay Nidumolu**
 University of Waterloo
+Machine Learning Engineer | Data Engineering | Applied AI
 
 **Praveen Raavi**
 University of Waterloo
 
 ---
 
-# Citation
-
-If you find this work useful, please cite the original paper and this repository.
-
----
-
-# Acknowledgements
+## Acknowledgements
 
 This work reproduces and extends the methodology proposed in:
 
-G. Sridevi and S. Srinivas Kumar, *Image Inpainting Based on Fractional-Order Nonlinear Diffusion for Image Reconstruction*, Circuits, Systems, and Signal Processing, 2019.
+**G. Sridevi and S. Srinivas Kumar**
+*Image Inpainting Based on Fractional-Order Nonlinear Diffusion for Image Reconstruction*
+Circuits, Systems, and Signal Processing, 2019.
